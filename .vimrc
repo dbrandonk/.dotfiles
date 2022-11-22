@@ -96,6 +96,7 @@ autocmd BufWritePre .vimrc %s/\s\+$//e
 " Leaders
 map <Leader>d "_
 map <Leader>p oimport IPython<CR>IPython.embed(<Esc>
+nnoremap <Leader>s :set spell<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""
 "mappings
@@ -141,11 +142,18 @@ set signcolumn=no
 set updatetime=50
 autocmd VimEnter * GitGutterLineHighlightsEnable
 
+
+""""""""""""""""""""""""""""""""""""""""""""
+" guten tags settings
+let g:gutentags_cache_dir = "/tmp"
+
 """"""""""""""""""""""""""""""""""""""""""""
 " fzf setting
-map <Leader>f :FZF<space><CR>
-map <Leader>F :FZF<space>~<CR>
+map <Leader>t :FZF<space><CR>
+map <Leader>T :FZF<space>~<CR>
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+map <Leader>f :Ag<space><CR>
+map <Leader>F :Ag<space>~<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""
 " TODO
