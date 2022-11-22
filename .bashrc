@@ -140,13 +140,6 @@ alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias ping='ping -c 10'
 alias less='less -R'
-alias cls='clear'
-alias apt-get='sudo apt-get'
-alias multitail='multitail --no-repeat -c'
-alias freshclam='sudo freshclam'
-alias vi='vim'
-alias svi='sudo vi'
-alias vis='vim "+set si"'
 
 # Change directory aliases
 alias home='cd ~'
@@ -156,11 +149,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# cd into the old directory
-alias bd='cd "$OLDPWD"'
-
 # Remove a directory and all files
-alias rmd='/bin/rm  --recursive --force --verbose '
+alias rmd='rm  --recursive --force --verbose '
 
 # Alias's for multiple directory listing commands
 alias la='ls -Alh' # show hidden files
@@ -201,16 +191,6 @@ alias countfiles="for t in files links directories; do echo \`find . -type \${t:
 
 # To see if a command is aliased, a file, or a built-in command
 alias checkcommand="type -t"
-
-# Show current network connections to the server
-alias ipview="netstat -anpl | grep :80 | awk {'print \$5'} | cut -d\":\" -f1 | sort | uniq -c | sort -n | sed -e 's/^ *//' -e 's/ *\$//'"
-
-# Show open ports
-alias openports='netstat -nape --inet'
-
-# Alias's for safe and forced reboots
-alias rebootsafe='sudo shutdown -r now'
-alias rebootforce='sudo shutdown -r -n now'
 
 # Alias's to show disk space and space used in a folder
 alias diskspace="du -S | sort -n -r |more"
@@ -287,7 +267,6 @@ up ()
 	fi
 	cd $d
 }
-
 
 #####################################################################################
 # git bash prompt
