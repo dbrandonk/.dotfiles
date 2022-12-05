@@ -73,14 +73,9 @@ set clipboard=unnamedplus
  tnoremap <C-k> <C-w>k
  tnoremap <C-l> <C-w>l
 
-" Making window resize easier
- " nnoremap <Down> <C-w>+
- " nnoremap <Up> <C-w>-
- " nnoremap <Left> <C-w>>
- " nnoremap <Right> <C-w><
-
-
 " making the mouse not go into visual mode.
+" I think I want this for adjusting window size but it all puts me in visual
+" mode a lot by mistake.
 " set mouse-=a
 
 """"""""""""""""""""""""""""""""""""""""""""
@@ -95,7 +90,7 @@ autocmd BufWritePre .vimrc %s/\s\+$//e
 """"""""""""""""""""""""""""""""""""""""""""
 " Leaders
 map <Leader>d "_
-map <Leader>p oimport IPython<CR>IPython.embed(<Esc>
+map <Leader>p oimport IPython<CR>IPython.embed(<Esc>)
 nnoremap <Leader>s :set spell<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""
@@ -117,15 +112,17 @@ inoremap <S-tab> <C-p>
 """"""""""""""""""""""""""""""""""""""""""""
 " Plugins
 call plug#begin()
+" run :PlugInstall to download this stuff
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-sleuth', {}
-Plug 'tpope/vim-commentary', {}
-Plug 'tpope/vim-surround', {}
-Plug 'ludovicchabant/vim-gutentags', {}
-Plug 'airblade/vim-gitgutter', {}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
+Plug 'junegunn/fzf.vim' " fuzzy finder
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " tree explorer
+Plug 'tpope/vim-sleuth', {} " indentation
+Plug 'tpope/vim-commentary', {} " comment out stuff
+Plug 'tpope/vim-surround', {} " surround
+Plug 'ludovicchabant/vim-gutentags', {} " tages
+Plug 'airblade/vim-gitgutter', {} " git diff
+" Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -158,3 +155,7 @@ map <Leader>F :Ag<space>~<CR>
 """"""""""""""""""""""""""""""""""""""""""""
 " TODO
 " user 10
+"
+" plugins
+" jedi vim
+" ale
