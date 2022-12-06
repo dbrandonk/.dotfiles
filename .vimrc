@@ -73,10 +73,11 @@ set clipboard=unnamedplus
  tnoremap <C-k> <C-w>k
  tnoremap <C-l> <C-w>l
 
-" making the mouse not go into visual mode.
-" I think I want this for adjusting window size but it all puts me in visual
-" mode a lot by mistake.
-" set mouse-=a
+
+""""""""""""""""""""""""""""""""""""""""""""
+" Mouse stuff
+set mouse=n " only work for normal and terminal modes.
+set ttymouse=sgr " work with tmux
 
 """"""""""""""""""""""""""""""""""""""""""""
 "Delete trailing whitespace
@@ -99,15 +100,6 @@ nnoremap Y y$
 nnoremap <C-S> :update<CR>
 inoremap <tab> <C-n>
 inoremap <S-tab> <C-p>
-
-""""""""""""""""""""""""""""""""""""""""""""
-" Automatically closing braces
-" inoremap { {}<Esc>ha
-" inoremap ( ()<Esc>ha
-" inoremap [ []<Esc>ha
-" inoremap " ""<Esc>ha
-" inoremap ' ''<Esc>ha
-" inoremap ` ``<Esc>ha
 
 """"""""""""""""""""""""""""""""""""""""""""
 " Plugins
