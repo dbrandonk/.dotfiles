@@ -269,50 +269,9 @@ up ()
 	cd $d
 }
 
-
-prog-stm() ( openocd -f board/st_nucleo_l4.cfg -c "program build/app/$@/$@ verify reset exit" )
 mapnet () ( nmap -sn $@/24 )
 format() (clang-format -style=file -i $@)
 format-all() (git diff --name-only | xargs clang-format -style=file -i)
-
-build-clean-pull()
-(
-	rm -rf build extern
-	vcs import < repos.yaml
-	mkdir build
-	cd build
-	cmake -D$@=ON -DCMAKE_TOOLCHAIN_FILE=../extern/hmi-emb-cmake/toolchain-arm.cmake ..
-	make
-	cd ..
-)
-
-build-clean()
-(
-	rm -rf build 
-	mkdir build
-	cd build
-	cmake -D$@=ON -DCMAKE_TOOLCHAIN_FILE=../extern/hmi-emb-cmake/toolchain-arm.cmake ..
-	make
-	cd ..
-)
-
-
-build-clean-default()
-(
-	rm -rf build 
-	mkdir build
-	cd build
-	cmake -DCMAKE_TOOLCHAIN_FILE=../extern/hmi-emb-cmake/toolchain-arm.cmake ..
-	make
-	cd ..
-)
-
-build()
-(
-	cd build
-	make
-	cd ..
-)
 
 #####################################################################################
 # git bash prompt
