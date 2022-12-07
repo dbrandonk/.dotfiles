@@ -57,10 +57,15 @@ set smartcase
 " color scheme
 colorscheme murphy
 hi Normal guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 """"""""""""""""""""""""""""""""""""""""""""
 " default reg clipboard
 set clipboard=unnamedplus
+
+""""""""""""""""""""""""""""""""""""""""""""
+" open hyperlinks with gx
+let g:netrw_browsex_viewer= "xdg-open"
 
 """"""""""""""""""""""""""""""""""""""""""""
 " Making window switch easier
