@@ -303,3 +303,8 @@ export EDITOR=vim;
 #####################################################################################
 # Disable software flow control
 stty -ixon
+
+# include .bashrc if it exists
+if [ -f $HOME/.bashrc_aliases ]; then
+    . $HOME/.bashrc_aliases
+fi
