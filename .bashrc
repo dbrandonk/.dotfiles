@@ -304,7 +304,19 @@ export EDITOR=vim;
 # Disable software flow control
 stty -ixon
 
-# include .bashrc if it exists
-if [ -f $HOME/.bashrc_aliases ]; then
-    . $HOME/.bashrc_aliases
+#####################################################################################
+# include .bashrc-extra if it exists
+if [ -f $HOME/.bashrc-extra ]; then
+    . $HOME/.bashrc-extra
+fi
+
+#####################################################################################
+# Start tmux when opening a terminal. 
+# Ensure the following
+# 1. tmux exists on the system
+# 2. we're in an interactive shell
+# 3. tmux doesn't try to run within itself
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
 fi
