@@ -119,10 +119,10 @@ if ! shopt -oq posix; then
 fi
 
 ####################################################################################
-# Custom
+# fzf stuff
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
+# Append this line to ~/.bashrc to enable fzf keybindings for Bash:
+source /usr/share/doc/fzf/examples/key-bindings.bash
 ####################################################################################
 # ALIAS
 
