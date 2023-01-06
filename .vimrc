@@ -140,6 +140,10 @@ autocmd VimEnter * GitGutterLineHighlightsEnable
 """"""""""""""""""""""""""""""""""""""""""""
 " guten tags settings
 let g:gutentags_cache_dir = "/tmp"
+let g:gutentags_ctags_exclude = [
+      \ '*.git',
+      \ '*js',
+      \ ]
 
 """"""""""""""""""""""""""""""""""""""""""""
 " fzf setting
