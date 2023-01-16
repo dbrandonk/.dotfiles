@@ -90,6 +90,7 @@ autocmd BufWritePre *.py %s/\s\+$//e
 autocmd BufWritePre *.c %s/\s\+$//e
 autocmd BufWritePre *.cpp %s/\s\+$//e
 autocmd BufWritePre *.h %s/\s\+$//e
+autocmd BufWritePre *.hpp %s/\s\+$//e
 autocmd BufWritePre *.yml %s/\s\+$//e
 autocmd BufWritePre *.adoc %s/\s\+$//e
 autocmd BufWritePre .vimrc %s/\s\+$//e
