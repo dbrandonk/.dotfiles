@@ -88,6 +88,7 @@ set ttymouse=sgr " work with tmux
 "Delete trailing whitespace
 autocmd BufWritePre *.py %s/\s\+$//e
 autocmd BufWritePre *.c %s/\s\+$//e
+autocmd BufWritePre *.cpp %s/\s\+$//e
 autocmd BufWritePre *.h %s/\s\+$//e
 autocmd BufWritePre *.yml %s/\s\+$//e
 autocmd BufWritePre *.adoc %s/\s\+$//e
