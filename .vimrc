@@ -99,7 +99,7 @@ autocmd BufWritePre .vimrc %s/\s\+$//e
 " Leaders
 map <Leader>d "_
 map <Leader>p oimport IPython<CR>IPython.embed(<Esc>)
-nnoremap <Leader>s :set spell<CR>
+nnoremap <Leader>s :set spell!<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""
 "mappings
