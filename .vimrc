@@ -100,6 +100,8 @@ autocmd BufWritePre .vimrc %s/\s\+$//e
 map <Leader>d "_
 map <Leader>p oimport IPython<CR>IPython.embed(<Esc>)
 nnoremap <Leader>s :set spell!<CR>
+nnoremap <Leader>Q :cquit<CR>
+nnoremap <Leader>q :qall<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""
 "mappings
