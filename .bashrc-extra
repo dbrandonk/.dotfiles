@@ -92,6 +92,15 @@ alias ungz='tar -xvzf'
 # Show all logs in /var/log
 alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 
+# git aliases
+alias gs='git status'
+alias gb='git blame'
+
+# colcon aliases
+alias cbpu='colcon build --packages-up-to'
+alias cbps='colcon build --packages-select'
+alias ctps='colcon test --packages-select'
+
 #################################################################################
 #FUNCTIONS
 
@@ -152,10 +161,6 @@ up ()
 mapnet () ( nmap -sn $@/24 )
 format() (clang-format -style=file -i $@)
 format-all() (git diff --name-only | xargs clang-format -style=file -i)
-
-#####################################################################################
-# git aliases
-alias gs='git status'
 
 #####################################################################################
 # Default editor
