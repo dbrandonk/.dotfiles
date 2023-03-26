@@ -162,6 +162,29 @@ mapnet () ( nmap -sn $@/24 )
 format() (clang-format -style=file -i $@)
 format-all() (git diff --name-only | xargs clang-format -style=file -i)
 
+vpn()
+(
+ sudo openvpn --config ~/.client.ovpn
+)
+
+dev()
+(
+ xhost +local:root 
+ # docker start -ai bk-dev-container || docker run --privileged --network="host" --name bk-dev-container -e DISPLAY -it -v /tmp/.X11-unix:/tmp/.X11-unix bk-dev-docker:latest need to make the args opt with flags
+ if docker exec -it bk-dev-container /bin/bash; then :
+ elif docker start -ai bk-dev-container; then :
+ else docker run --name bk-dev-container -e DISPLAY -it -v /tmp/.X11-unix:/tmp/.X11-unix bk-dev-docker:latest
+ fi
+ xhost -local:root 
+)
+
+dev-build-spec()
+(
+ yes | cp -rf ~/.ssh $HOME/Development/bk-dev-kit/bk-dev-docker/
+ docker build --build-arg BASE_IMAGE=$1 --build-arg GIT_EMAIL=$2 -t bk-dev-docker:latest $HOME/Development/bk-dev-kit/bk-dev-docker/.
+ rm -rf $HOME/Development/bk-dev-kit/bk-dev-docker/.ssh
+)
+
 #####################################################################################
 # Default editor
 export VISUAL=vim;
