@@ -185,6 +185,11 @@ dev-build-spec()
  rm -rf $HOME/Development/bk-dev-kit/bk-dev-docker/.ssh
 )
 
+dev-build-home()
+(
+ dev-build-spec ubuntu:20.04 d.brandonk@gmail.com
+)
+
 #####################################################################################
 # Default editor
 export VISUAL=vim;
