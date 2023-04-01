@@ -173,7 +173,7 @@ dev()
  # docker start -ai bk-dev-container || docker run --privileged --network="host" --name bk-dev-container -e DISPLAY -it -v /tmp/.X11-unix:/tmp/.X11-unix bk-dev-docker:latest need to make the args opt with flags
  if docker exec -it bk-dev-container /bin/bash; then :
  elif docker start -ai bk-dev-container; then :
- else docker run --name bk-dev-container -e DISPLAY -it -v /tmp/.X11-unix:/tmp/.X11-unix bk-dev-docker:latest
+ else docker run --name bk-dev-container -e DISPLAY -it -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/Development:/root/host-folders/Development -v ~/Documents:/root/host-folders/Documents bk-dev-docker:latest
  fi
  xhost -local:root 
 )
