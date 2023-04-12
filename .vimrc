@@ -98,7 +98,8 @@ autocmd BufWritePre .vimrc %s/\s\+$//e
 """"""""""""""""""""""""""""""""""""""""""""
 " Leaders
 map <Leader>d "_
-map <Leader>p oimport IPython<CR>IPython.embed(<Esc>)
+map <Leader>g :!git difftool<CR>
+map <Leader>p oimport IPython<CR>IPython.embed()<Esc>
 nnoremap <Leader>s :set spell!<CR>
 nnoremap <Leader>Q :cquit<CR>
 nnoremap <Leader>q :qall<CR>

@@ -162,6 +162,14 @@ mapnet () ( nmap -sn $@/24 )
 format() (clang-format -style=file -i $@)
 format-all() (git diff --name-only | xargs clang-format -style=file -i)
 
+colcon-tidy () (
+ INCLUDE_DIRS=""
+ for dir in $(echo $AMENT_PREFIX_PATH | tr ':' ' '); do
+   INCLUDE_DIRS="$INCLUDE_DIRS -I$dir/include"
+ done
+ clang-tidy $@ --checks=* -- $INCLUDE_DIRS
+) 
+
 vpn()
 (
  sudo openvpn --config ~/.client.ovpn
