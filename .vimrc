@@ -150,6 +150,10 @@ highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Re
 highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 
 """"""""""""""""""""""""""""""""""""""""""""
+" let's always start at the top of the file when we are doing a diff.
+autocmd VimEnter * if &diff | execute "normal gg" | endif
+
+""""""""""""""""""""""""""""""""""""""""""""
 " guten tags settings
 let g:gutentags_cache_dir = "/tmp"
 let g:gutentags_ctags_exclude = [
