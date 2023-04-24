@@ -140,6 +140,7 @@ nnoremap <C-f> :NERDTreeFind<CR>
 set signcolumn=no
 set updatetime=50
 autocmd VimEnter * GitGutterLineHighlightsEnable
+autocmd CursorHold * GitGutterAll " Making sure the displayed diffs go away after a commit.
 
 
 """"""""""""""""""""""""""""""""""""""""""""
