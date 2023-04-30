@@ -1,1 +1,8 @@
 setxkbmap -option caps:swapescape
+redshift -x -m randr
+redshift -l 29.7604:95.3698 -O 3000 -m randr
+
+# include .xsessionrc-extra-home if it exists
+if [ -f $HOME/.xsessionrc-extra-home ]; then
+ source $HOME/.xsessionrc-extra-home
+fi
