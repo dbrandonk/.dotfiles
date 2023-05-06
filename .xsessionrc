@@ -1,6 +1,12 @@
 setxkbmap -option caps:swapescape
-redshift -x -m randr
-redshift -l 29.7604:95.3698 -O 3000 -m randr
+
+#redshift -x -m randr
+#redshift -l 29.7604:95.3698 -O 3000 -m randr
+
+xset dpms 0 0 0
+
+xautolock -time 10 -locker "slock" &
+xautolock -time 11 -locker "systemctl suspend; xset dpms force off" &
 
 # include .xsessionrc-extra-home if it exists
 if [ -f $HOME/.xsessionrc-extra-home ]; then
