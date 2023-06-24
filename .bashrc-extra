@@ -178,12 +178,18 @@ vpn()
 dev()
 (
  # docker start -ai bk-dev-container || docker run --privileged --network="host" --name bk-dev-container -e DISPLAY -it -v /tmp/.X11-unix:/tmp/.X11-unix bk-dev-docker:latest need to make the args opt with flags
+ xhost +local:root
  if docker exec -it bk-dev-container /bin/bash; then :
  elif docker start -ai bk-dev-container; then :
  else
-   xhost +local:root
    docker run --name bk-dev-container -e DISPLAY -it -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/Development:/root/host-folders/Development -v ~/Documents:/root/host-folders/Documents bk-dev-docker:latest
+ fi
+
+ # only closing xhost local:root if the container is not running anymore.
+ if [ "$(docker inspect -f '{{.State.Running}}' bk-dev-container)" == "true" ]; then :
+ else
    xhost -local:root
+   echo "ran -> xhost -local:root"
  fi
 )
 
