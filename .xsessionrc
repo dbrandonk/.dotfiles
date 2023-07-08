@@ -9,7 +9,7 @@ xset dpms 0 0 300
 pkill xautolock 
 
 # not ideal.
-xautolock -time 10 -locker "systemctl suspend; xset dpms force off; slock" &
+xautolock -time 10 -locker "systemctl suspend; xset dpms force off; slock; source ~/.xsessionrc" &
 
 # include .xsessionrc-extra-home if it exists
 if [ -f $HOME/.xsessionrc-extra-home ]; then
