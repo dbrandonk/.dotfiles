@@ -189,12 +189,13 @@ dev()
    docker run --name bk-dev-container -e DISPLAY -it -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/Development:/root/host-folders/Development -v ~/Documents:/root/host-folders/Documents bk-dev-docker:latest
  fi
 
+ # I can't get this to work consistently. Maybe one day I will try harder.
  # only closing xhost local:root if the container is not running anymore.
- if [ "$(docker inspect -f '{{.State.Running}}' bk-dev-container)" == "true" ]; then :
- else
-   xhost -local:root
-   echo "ran -> xhost -local:root"
- fi
+ # if [ "$(docker inspect -f '{{.State.Running}}' bk-dev-container)" == "true" ]; then :
+ # else
+   # xhost -local:root
+   # echo "ran -> xhost -local:root"
+ # fi
 )
 
 dev-build-spec()
