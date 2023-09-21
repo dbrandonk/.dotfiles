@@ -98,12 +98,16 @@ alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' 
 
 # git aliases
 alias gs='git status'
-alias gb='git blame'
+gbl () ( git blame $@ | vim -R -)
+alias gc='git checkout'
 
 # colcon aliases
 alias cbpu='colcon build --packages-up-to'
 alias cbps='colcon build --packages-select'
 alias ctps='colcon test --packages-select'
+
+# sgpt
+alias chat='sgpt --repl temp'
 
 #################################################################################
 #FUNCTIONS
@@ -130,20 +134,6 @@ extract () {
 			echo "'$archive' is not a valid file!"
 		fi
 	done
-}
-
-# Show current network information
-netinfo ()
-{
-	echo "--------------- Network Information ---------------"
-	/sbin/ifconfig | awk /'inet addr/ {print $2}'
-	echo ""
-	/sbin/ifconfig | awk /'Bcast/ {print $3}'
-	echo ""
-	/sbin/ifconfig | awk /'inet addr/ {print $4}'
-
-	/sbin/ifconfig | awk /'HWaddr/ {print $4,$5}'
-	echo "---------------------------------------------------"
 }
 
 # Goes up a specified number of directories  (i.e. up 4)
