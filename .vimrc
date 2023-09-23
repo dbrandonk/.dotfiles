@@ -98,12 +98,12 @@ autocmd BufWritePre *.xml %s/\s\+$//e
 
 """"""""""""""""""""""""""""""""""""""""""""
 " Leaders
-map <Leader>d "_
-map <Leader>g :!git difftool<CR>
-map <Leader>p oimport IPython<CR>IPython.embed()<Esc>
+nnoremap <Leader>g :!git difftool<CR>
+nnoremap <Leader>p oimport IPython<CR>IPython.embed()<Esc>
 nnoremap <Leader>s :set spell!<CR>
 nnoremap <Leader>Q :cquit<CR>
 nnoremap <Leader>q :qall<CR>
+nnoremap <Leader>b :Git blame<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""
 "mappings
@@ -123,6 +123,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " tree explorer
 Plug 'tpope/vim-sleuth', {} " indentation
 Plug 'tpope/vim-commentary', {} " comment out stuff
 Plug 'tpope/vim-surround', {} " surround
+Plug 'tpope/vim-fugitive', {} " more git vim stuff
 Plug 'ludovicchabant/vim-gutentags', {} " tages
 Plug 'airblade/vim-gitgutter', {} " git diff
 Plug 'tmux-plugins/vim-tmux-focus-events', {}
@@ -227,11 +228,18 @@ let g:gutentags_ctags_exclude = [
 
 """"""""""""""""""""""""""""""""""""""""""""
 " fzf settings
-map <Leader>t :FZF<space><CR>
-map <Leader>T :FZF<space>~<CR>
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-map <Leader>f :Ag<space><CR>
-map <Leader>F :Ag<space>~<CR>
+let $FZF_DEFAULT_COMMAND = 'rg --hidden --ignore .git -g ""'
+nnoremap <Leader>t :FZF<space><CR>
+nnoremap <Leader>T :FZF<space>~<CR>
+nnoremap <Leader>f :Rg<space><CR>
+nnoremap <Leader>F :Rg<space>~<CR>
+
+nnoremap <silent> <Leader>d :GFiles?<CR>
+nnoremap <silent> <Leader>/ :BLines<CR>
+nnoremap <silent> <Leader>' :Marks<CR>
+nnoremap <silent> <Leader>c :BCommits<CR>
+nnoremap <silent> <Leader>C :Commits<CR>
+nnoremap <silent> <Leader>H :Helptags<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""
 " file changes outside of vim settings
