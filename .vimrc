@@ -125,6 +125,7 @@ Plug 'tpope/vim-commentary', {} " comment out stuff
 Plug 'tpope/vim-surround', {} " surround
 Plug 'ludovicchabant/vim-gutentags', {} " tages
 Plug 'airblade/vim-gitgutter', {} " git diff
+Plug 'tmux-plugins/vim-tmux-focus-events', {}
 " Plug 'davidhalter/jedi-vim'
 
 call plug#end()
@@ -141,7 +142,10 @@ nnoremap <C-f> :NERDTreeFind<CR>
 set signcolumn=no
 set updatetime=50
 autocmd VimEnter * GitGutterLineHighlightsEnable
-autocmd CursorHold * GitGutterAll " Making sure the displayed diffs go away after a commit.
+
+" Making sure the displayed diffs go away after a commit.
+au CursorHold,CursorHoldI * GitGutterAll
+au FocusGained,BufEnter * :GitGutterAll
 
 
 """"""""""""""""""""""""""""""""""""""""""""
@@ -222,12 +226,18 @@ let g:gutentags_ctags_exclude = [
       \ ]
 
 """"""""""""""""""""""""""""""""""""""""""""
-" fzf setting
+" fzf settings
 map <Leader>t :FZF<space><CR>
 map <Leader>T :FZF<space>~<CR>
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 map <Leader>f :Ag<space><CR>
 map <Leader>F :Ag<space>~<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""
+" file changes outside of vim settings
+au CursorHold,CursorHoldI * checktime
+au FocusGained,BufEnter * :checktime
+" set autoread (If you get tired of confirming.)
 
 """"""""""""""""""""""""""""""""""""""""""""
 " TODO
