@@ -228,7 +228,10 @@ let g:gutentags_ctags_exclude = [
 
 """"""""""""""""""""""""""""""""""""""""""""
 " fzf settings
-let $FZF_DEFAULT_COMMAND = 'rg --hidden --ignore .git -g ""'
+" not using this right now.
+" let $FZF_DEFAULT_COMMAND = 'rg --hidden --ignore .git -g ""'
+" I'm going to use this for now because I like how \t comes up.
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 nnoremap <Leader>t :FZF<space><CR>
 nnoremap <Leader>T :FZF<space>~<CR>
 nnoremap <Leader>f :Rg<space><CR>
