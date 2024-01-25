@@ -95,6 +95,7 @@ autocmd BufWritePre *.yml %s/\s\+$//e
 autocmd BufWritePre *.adoc %s/\s\+$//e
 autocmd BufWritePre .vimrc %s/\s\+$//e
 autocmd BufWritePre *.xml %s/\s\+$//e
+autocmd BufWritePre Dockerfile %s/\s\+$//e
 
 """"""""""""""""""""""""""""""""""""""""""""
 " Leaders
@@ -109,8 +110,6 @@ nnoremap <Leader>b :Git blame<CR>
 "mappings
 nnoremap Y y$
 nnoremap <C-S> :update<CR>
-inoremap <tab> <C-n>
-inoremap <S-tab> <C-p>
 
 """"""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -127,16 +126,30 @@ Plug 'tpope/vim-fugitive', {} " more git vim stuff
 Plug 'ludovicchabant/vim-gutentags', {} " tages
 Plug 'airblade/vim-gitgutter', {} " git diff
 Plug 'tmux-plugins/vim-tmux-focus-events', {}
-" Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'ervandew/supertab'
 
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""
 " NERDTree settings and mappings
-nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""
+" jedi vim
+
+let g:jedi#completions_command = "<tab>"
+let g:jedi#goto_command = "<C-]>"
+let g:jedi#goto_assignments_command = ""
+let g:jedi#goto_stubs_command = ""
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#rename_command_keep_name = "<leader>R"
+let g:jedi#usages_command = "<leader>n"
 
 """"""""""""""""""""""""""""""""""""""""""""
 " git gutter settings
@@ -252,8 +265,4 @@ au FocusGained,BufEnter * :checktime
 
 """"""""""""""""""""""""""""""""""""""""""""
 " TODO
-" user 10
-"
-" plugins
-" jedi vim
-" ale
+" read vim docs user 10 and beyond
