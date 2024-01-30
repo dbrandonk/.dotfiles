@@ -123,7 +123,7 @@ Plug 'tpope/vim-sleuth', {} " indentation
 Plug 'tpope/vim-commentary', {} " comment out stuff
 Plug 'tpope/vim-surround', {} " surround
 Plug 'tpope/vim-fugitive', {} " more git vim stuff
-Plug 'ludovicchabant/vim-gutentags', {} " tages
+Plug 'ludovicchabant/vim-gutentags', {} " tags
 Plug 'airblade/vim-gitgutter', {} " git diff
 Plug 'tmux-plugins/vim-tmux-focus-events', {}
 Plug 'davidhalter/jedi-vim'
@@ -265,4 +265,4 @@ au FocusGained,BufEnter * :checktime
 
 """"""""""""""""""""""""""""""""""""""""""""
 " TODO
-" read vim docs user 10 and beyond
+" read vim docs user 10.3 and beyond
