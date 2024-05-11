@@ -194,7 +194,7 @@ dev-build-spec()
 
 dev-build-home()
 (
- dev-build-spec ubuntu:20.04 d.brandonk@gmail.com
+ dev-build-spec home-dev d.brandonk@gmail.com
 )
 
 #####################################################################################
