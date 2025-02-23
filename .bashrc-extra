@@ -149,10 +149,20 @@ mapnet () ( nmap -sn $@/24 )
 dev()
 (
  xhost +local:root
+
+ # Try to exec into the dev container, if it's running
  if docker exec -it bk-dev-container /bin/bash; then :
+
+ # If the container is stopped, try to start it
  elif docker start -ai bk-dev-container; then :
+
+ # No dev container is running, lets try and start the gpu version of the container first.
+ elif docker compose -f ~/Development/bk-dev-kit/bk-dev-docker/docker-compose.yml up -d bk-developer; then:
+
+ # Nothing is started and could not start the gpu version of the container, kick of the cpu version.
  else
-   docker compose -f ~/Development/bk-dev-kit/bk-dev-docker/docker-compose.yml up -d
+   echo "Failed to start GPU container, starting CPU-only container..."
+   docker compose -f ~/Development/bk-dev-kit/bk-dev-docker/docker-compose.yml up -d bk-developer-no-gpu
  fi
 )
 
