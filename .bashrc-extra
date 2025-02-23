@@ -101,14 +101,6 @@ alias gs='git status'
 gbl () ( git blame $@ | vim -R -)
 alias gc='git checkout'
 
-# colcon aliases
-alias cbpu='colcon build --packages-up-to'
-alias cbps='colcon build --packages-select'
-alias ctps='colcon test --packages-select'
-
-# sgpt
-alias chat='sgpt --repl temp'
-
 #################################################################################
 #FUNCTIONS
 
@@ -153,21 +145,6 @@ up ()
 }
 
 mapnet () ( nmap -sn $@/24 )
-format() (clang-format -style=file -i $@)
-format-all() (git diff --name-only | xargs clang-format -style=file -i)
-
-colcon-tidy () (
- INCLUDE_DIRS=""
- for dir in $(echo $AMENT_PREFIX_PATH | tr ':' ' '); do
-   INCLUDE_DIRS="$INCLUDE_DIRS -I$dir/include"
- done
- clang-tidy $@ --checks=* -- $INCLUDE_DIRS
-) 
-
-vpn()
-(
- sudo openvpn --config ~/.client.ovpn
-)
 
 dev()
 (
