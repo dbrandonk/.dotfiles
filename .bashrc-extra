@@ -157,7 +157,7 @@ dev()
  elif docker start -ai bk-dev-container; then :
 
  # No dev container is running, lets try and start the gpu version of the container first.
- elif docker compose -f ~/Development/bk-dev-kit/bk-dev-docker/docker-compose.yml up -d bk-developer; then:
+ elif docker compose -f ~/Development/bk-dev-kit/bk-dev-docker/docker-compose.yml up -d bk-developer; then :
 
  # Nothing is started and could not start the gpu version of the container, kick of the cpu version.
  else
