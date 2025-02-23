@@ -141,8 +141,10 @@ nnoremap <C-f> :NERDTreeFind<CR>
 """"""""""""""""""""""""""""""""""""""""""""
 " jedi vim
 
-let g:jedi#completions_command = "<tab>"
-let g:jedi#goto_command = "<C-]>"
+" let g:jedi#completions_command = "<tab>"
+" let g:jedi#goto_command = "<C-]>"
+let g:jedi#completions_command = ""
+let g:jedi#goto_command = ""
 let g:jedi#goto_assignments_command = ""
 let g:jedi#goto_stubs_command = ""
 let g:jedi#goto_definitions_command = ""
