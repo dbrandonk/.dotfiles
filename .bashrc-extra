@@ -3,10 +3,10 @@
 set -o vi
 
 ####################################################################################
-# fzf stuff
+# fzf source
 
-# Append this line to ~/.bashrc to enable fzf keybindings for Bash:
-source /usr/share/doc/fzf/examples/key-bindings.bash
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 ####################################################################################
 # ALIAS
 
