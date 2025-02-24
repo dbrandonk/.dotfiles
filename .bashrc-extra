@@ -27,7 +27,6 @@ alias ping='ping -c 10'
 alias less='less -R'
 
 # Change directory aliases
-alias home='cd ~'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
