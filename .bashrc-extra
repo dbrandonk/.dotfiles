@@ -195,6 +195,10 @@ export TMOUT=0
 #####################################################################################
 # Disable software flow control
 stty -ixon
+#
+#####################################################################################
+# nvim
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 #####################################################################################
 # enable programmable completion features (you don't need to enable
