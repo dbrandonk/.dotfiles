@@ -156,26 +156,26 @@ dev()
  elif docker start -ai bk-dev-container; then :
 
  # No dev container is running, lets try and start the gpu version of the container first.
- elif docker compose -f ~/Development/bk-dev-kit/bk-dev-docker/docker-compose.yml up -d bk-developer; then :
+ elif docker compose -f ~/Development/bk-dev-kit/docker-compose.yml up -d bk-developer; then :
 
  # Nothing is started and could not start the gpu version of the container, kick of the cpu version.
  else
    echo "Failed to start GPU container, starting CPU-only container..."
-   docker compose -f ~/Development/bk-dev-kit/bk-dev-docker/docker-compose.yml up -d bk-developer-no-gpu
+   docker compose -f ~/Development/bk-dev-kit/docker-compose.yml up -d bk-developer-no-gpu
  fi
 )
 
 dev-stop()
 (
-   docker compose -f ~/Development/bk-dev-kit/bk-dev-docker/docker-compose.yml down
+   docker compose -f ~/Development/bk-dev-kit/docker-compose.yml down
    xhost -local:root
 )
 
 dev-build-spec()
 (
- yes | cp -rf ~/.ssh $HOME/Development/bk-dev-kit/bk-dev-docker/
- docker build --build-arg BASE_IMAGE=$1 --build-arg GIT_EMAIL=$2 -t bk-dev-docker:latest $HOME/Development/bk-dev-kit/bk-dev-docker/.
- rm -rf $HOME/Development/bk-dev-kit/bk-dev-docker/.ssh
+ yes | cp -rf ~/.ssh $HOME/Development/bk-dev-kit/
+ docker build --build-arg BASE_IMAGE=$1 --build-arg GIT_EMAIL=$2 -t bk-dev-docker:latest $HOME/Development/bk-dev-kit/.
+ rm -rf $HOME/Development/bk-dev-kit/.ssh
 )
 
 dev-build-home()
